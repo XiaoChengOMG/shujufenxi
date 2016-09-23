@@ -58,31 +58,32 @@ class RBTree():
 				s_1 = str(self.val);
 			else:
 				s_1 = 'None';
-			if self.left != None:  
-                s_2 = str(self.left.val);  
-            else:  
-                s_2 = 'None';  
+
+			if self.left != None:
+				s_2 = str(self.left.val);  
+			else:
+				s_2 = 'None';  
   
-            if self.right != None:  
-                s_3 = str(self.right.val);  
-            else:  
-                s_3 = 'None';  
+			if self.right != None:
+				s_3 = str(self.right.val);  
+			else:
+				s_3 = 'None';  
   
-            s_4 = str(self.parent);  
-            s_5 = str(self.color);  
+			s_4 = str(self.parent);  
+			s_5 = str(self.color);  
                   
-            return '__RBTreeNode('+s_1+', ' + s_2 +', ' + s_3 +', '+ s_4 +', '+s_5+')';  
+			return '__RBTreeNode('+s_1+', ' + s_2 +', ' + s_3 +', '+ s_4 +', '+s_5+')';  
               
               
-	    def __init__(self):  
+		def __init__(self):
 	       # self.items = []  
-	        self.root = None  
-	        self.zlist = []  
+			self.root = None  
+			self.zlist = []  
 	 
-	   def LRotate(self, x):  
-	       # x是一个RBTree.__RBTreeNode  
-	       y = x.right  
-	       if y is None:  
+		def LRotate(self, x):  
+			# x是一个RBTree.__RBTreeNode  
+			y = x.right
+			if y is None:
 	           # 右节点为空，不旋转  
 	           pass;  
 	       else:  
@@ -470,3 +471,56 @@ class RBTree():
 	            return True;  
 	  
 	        return False;  
+
+
+################################################
+if __name__ == '__main__':  
+    rbt=RBTree()  
+    b = []  
+    N = 10;  
+  
+    data = [0, 24, 26, 79, 93, 99, 335, 378, 440, 494];  
+  
+    data2 = [90, 115, 168, 236, 270, 271, 300, 393, 465, 489];  
+      
+    #生成随机原始数据  
+    for i in range(N):  
+        m = randint(0, 500)  
+        rbt.insert(m)  
+        b.append(m)  
+          
+    #插入  
+    for x in data2:  
+        rbt.insert(x);  
+      
+    for node in rbt.iternodes():  
+        node.info();  
+  
+    print('root:');  
+    rbt.root.info();     
+  
+    #删除  
+    rbt.delete(236);  
+    rbt.delete(233);  
+    print('root:');  
+    rbt.root.info();  
+    print(len(rbt));  
+  
+    #查找  
+    p = rbt.find(168);  
+    if (p != None):  
+        p.info();  
+  
+    #  
+    print('max:');  
+    rbt.findMax().info();  
+    print('min:');  
+    rbt.findMin().info();  
+    print('height:', rbt.height(rbt.root));  
+    print(168 in rbt);  
+    print(1002 in rbt);  
+  
+    #  
+    for x in rbt.iternodes():  
+        print(rbt.findNodePath(rbt.root, x));  
+        print(rbt.level(x.val));  

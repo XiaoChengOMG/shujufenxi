@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 
 from django.contrib import admin
-from mysite.views import current_datetime
+import mysite.views
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -10,6 +10,7 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^index/', current_datetime),
+    url(r'^index/', mysite.views.current_datetime),
+    url(r'^xsck/', mysite.views.xsck),
 
 )

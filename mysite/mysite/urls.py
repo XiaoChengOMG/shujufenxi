@@ -10,7 +10,7 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^index/', mysite.views.current_datetime),
+    url(r'^index/', mysite.views.index),
     url(r'^xsck/', mysite.views.xsck),
 
 )

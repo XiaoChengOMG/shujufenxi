@@ -1,7 +1,6 @@
 from __future__ import unicode_literals
 from django.db import models
 
-from django.db import models
 # Create your models here.
 # This is an auto-generated Django model module.
 # You'll have to do the following manually to clean this up:

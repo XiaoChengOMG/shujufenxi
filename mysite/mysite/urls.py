@@ -12,5 +12,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^index/', mysite.views.index),
     url(r'^xsck/', mysite.views.xsck),
+    url(r'', mysite.views.login1),
+    url(r'login', mysite.views.login),
 
 )

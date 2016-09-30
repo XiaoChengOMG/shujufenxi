@@ -3,6 +3,19 @@ from django.shortcuts import render_to_response
 import datetime
 import cx_Oracle
 from mysite.models import CkKpdHz
+#from django.views.decorators.csrf import csrf_exempt 
+def login1(request):
+	return render_to_response('login.html')
+
+#@csrf_exempt
+def login(request):
+	if request.method == 'POST':
+		form = ContactForm(request.POST)
+	else:
+		form = ContactForm()
+	return render_to_response('login.html',{'r':form})
+
+
 
 def index(request):
 	now = datetime.datetime.now()

@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'mysite',
+    'blog',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -56,16 +57,24 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 #username & password : django django
-DATABASES = {
-    'default': {
+#DATABASES = {
+#    'default': {
         #'ENGINE': 'django.db.backends.sqlite3',
         #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        'ENGINE':'django.db.backends.oracle',
-        'NAME':'LMIS',
-        'USER':'lmis',
-        'PASSWORD':'lmis',
-        'HOST':'192.168.0.206',
-        'PORT':'1521',
+#        'ENGINE':'django.db.backends.oracle',
+#        'NAME':'LMIS',
+#        'USER':'lmis',
+#        'PASSWORD':'lmis',
+#        'HOST':'192.168.0.206',
+#        'PORT':'1521',
+#    }
+#}
+
+#BLog database
+DATABASES = {
+    'default':{
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': r'D:\shujufenxi\mysite\blog\DB\blog.db',
     }
 }
 
